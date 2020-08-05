@@ -1,6 +1,6 @@
 //declare an array to play with
 let arr = [1, 6];
-let arr2 = [1, 7];
+let arr2 = [1, 7, 5];
 
 // Sum in array my way
 const sumAll = (arr) => {   //declare the function
