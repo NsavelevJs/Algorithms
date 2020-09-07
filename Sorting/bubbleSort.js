@@ -25,6 +25,8 @@ function bubbleSort(arr) {
 let myArray = [12, 6, 3, 7, 13, 8, 45,1245631563,600];
 bubbleSort(myArray)
 console.log(bubbleSort(myArray));
+
+
 // IN JAVA
 // public void bubbleSort(int[] arr)
 // {
