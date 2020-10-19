@@ -55,26 +55,80 @@ class LinkedList {
     }
     return current; // return the current value
   }
-  shift() {
-    if (!this.head) return undefined;
-    let currentHead = this.head;
-    this.head = currentHead.next;
-    this.length--;
-    if (this.length === 0) {
-      this.tail = null;
+  shift() { // Method that removes the first index
+    if (!this.head) return undefined; // if it's not the head 
+    let currentHead = this.head; // declare the first node
+    this.head = currentHead.next;// give the value of the next node after the first node to the first node
+    this.length--; // decrement the list 
+    if (this.length === 0) { // if the lengths value is 0
+      this.tail = null; // make the tail null
     }
-    return currentHead;
+    return currentHead; // return the shifted value
   }
-  unshift(value) {
-    let newNode = new Node(value);
-    if (!this.head) {
-      this.head = newNode;
-      this.tail = this.head;
-    } else {
-      newNode.next = this.head;
-      this.head = newNode;
+  unshift(value) { //Mathod to add to the begining of the linked list
+    let newNode = new Node(value); // declare a new node
+    if (!this.head) { // if its not the head
+      this.head = newNode; // give the first node the value of the newNode
+      this.tail = this.head; //give the tail the value of the first node
+    } else { // otherwise
+      newNode.next = this.head; //give the value of the first node to the newNodes next value
+      this.head = newNode; // give value of the newNode to the first node
     }
+    this.length++; // incremenet the length of the list
+    return this; // return the list
+  }
+  get(index) { // gets the value of the requested node
+    if (index < 0 || index >= this.length) return null; // if its not in the list return null
+    let counter = 0; // declare a counter with the value of 0
+    let current = this.head; // declare the current value of the first node
+    while (counter != index) { // as long counter is not equal to the index
+      current = current.next; // give the value of the next value of the current index to the current index
+      counter++;//increment the counter
+    }
+    return current; return 
+  }
+  set(index, value) {//sets the value of the index provided
+    let node = this.get(index);// declare the index node
+    if (!node) return false;// if its not equal to the node return false
+    node.value = value;//give the value to the node
+    return true;//return true
+  }
+
+  insert(index, value) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return !!this.push(value);
+    if (index === 0) return !!this.unshift(value);
+    let newNode = new Node(value);
+    let prevNode = this.index(index - 1);
+    let nextNode = prevNode.next;
+    prevNode.next = newNode;
+    newNode.next = nextNode;
     this.length++;
-    return this;
+    return true;
+  }
+  remove(index) { //Method that removes a node
+    if (index < 0 || index >= this.length) return false; // if the index is less than 0 or greater than or equal to the length of the list
+    if (index === this.length - 1) return this.pop(); // if the index's value is the last index in the list remove it
+    if (index === 0) return this.shift(); // if its the first index remove the firs index
+    let prevNode = this.index(index - 1); // declare the previous node
+    let node = prevNode.next; // give the node the value of the one after the previous node
+    prevNode.next = node.next; // give the value of previous nodes net value to the nodes next value
+    this.length--; //decrement the length of the linked list
+    return node; // return the node that was removed
+  }
+  reverse(){ 
+    //Method that reverses the list in place 
+    let node = this.head // first node
+    this.head = this.tail // give the first nodes value the last nodes value
+    this.tail = node // give the last node the first nodes value
+    let prev = null // declare prev as being null
+    let next = node.next // declare the next node
+    for(let i = 0; i<this.lenght; i++){ // iterate throught the list and reverse the rest of the list
+      next = node.next 
+      node.next = prev
+      prev = node 
+      node = next
+    }
+    return this //return the list
   }
 }
