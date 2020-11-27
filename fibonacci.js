@@ -24,7 +24,7 @@ const fibonacciR = (num) => {
 };
 
 //regular result
-console.log(fibonacci(6));
+console.log(fibonacci(42));
 
 //recursive result
-console.log(fibonacciR(5));
+console.log(fibonacciR(42));
