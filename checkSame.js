@@ -1,3 +1,4 @@
+// Needs work
 function anagram(str1, str2) {
   if (str1.length !== str2.length) {
     return false;
@@ -10,13 +11,10 @@ function anagram(str1, str2) {
   console.log(counter)
   for (let i = 0; i < str2.length; i++) {
     let letter = str2[i];
-    if(!counter[letter]){
-        return false
-    }else{
-        counter[letter] -= 1
-    }
+   !counter[letter] ? false : counter[letter] -= 1
   }
   return true;
 }
 
 console.log(anagram('anagram','nagaram'))
+console.log(anagram('topic','apple'))
