@@ -3,14 +3,16 @@
 //Insert     O(N)  | O(1)
 //Delete     O(N)  | O(1)
 
-class Node { // initiate node
+class Node {
+  // initiate node
   constructor(val) {
     this.val = val;
     this.next = null;
   }
 }
 
-class LinkedList { // initiale list 
+class LinkedList {
+  // initiale list
   constructor() {
     this.head = null;
   }
@@ -42,19 +44,35 @@ class LinkedList { // initiale list
       }
       curr = curr.next;
     }
-    return false
+    return false;
   }
+
+  deleteVal(head, target) {
+    let prev = null;
+    let curr = head;
+    while (curr !== null) {
+      if (curr.val === target) {
+        prev.next = curr.next;
+      }
+      prev = curr;
+      curr = curr.next;
+    }
+  }
+  
 }
 const list = new LinkedList();
 list.append("a");
 list.append("b");
 list.append("c");
 list.append("d");
+list.append("e");
+list.append("f");
 list.print();
+console.log(list.deleteVal("a", "e"));
 list.contains("d");
-list.contains('a');
-list.contains('b');
-list.contains('c');
-list.contains('d');
-list.contains('e');
-list.contains('f');
+list.contains("a");
+list.contains("b");
+list.contains("c");
+list.contains("d");
+list.contains("e");
+list.contains("f");

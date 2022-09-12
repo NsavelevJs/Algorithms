@@ -17,7 +17,7 @@ console.log(arr)
       right = mid - 1;
     }
   }
-  console.log("Not in this array's house!");
+  return "Not in this array's house!";
 }
 let myArray = [17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59];
 let anotherArray = [45, 19, 23, 29, 31, 27, 41, 43, 47, 53, 59];
