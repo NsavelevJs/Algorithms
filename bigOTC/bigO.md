@@ -30,3 +30,9 @@ O(n) Linear time:
 
   O(n*log(n)) Loglinear
 
+  - Has linear behavior nested in log steps
+  - Bigger than O(n) but smaller than O(n^2)
+
+  Please see 
+  logLin.py
+
