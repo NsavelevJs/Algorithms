@@ -1,12 +1,8 @@
 import math 
-def logLin(str):
-    print(str)
-    if len(str) < 1:
-        return
-    midIndex = math.floor(len(str) / 2)
-    divide = slice(0, midIndex)
-    logLin(divide) 
+def logLin(n):
+    if n == 0:
+       return "Done"
+    n = math.floor(n/2)
+    logLin(n)
 
-print(logLin("abcdefghijklmnopqrstuvwxyz"))
-
-# does not work and will be fixed.
+print(logLin(12))
