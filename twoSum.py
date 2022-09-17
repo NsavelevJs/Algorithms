@@ -9,3 +9,9 @@ def twoSum(nums, target):
 arr = [2,5,10,25]
 tar = 30
 print(twoSum(arr, tar))
+
+# this is meant both for algo practice
+# and better understanding of hashMaps 
+
+# time: O(n)
+# space: O(n) 
